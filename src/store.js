@@ -1,14 +1,17 @@
 import { configureStore } from "@reduxjs/toolkit";
-import home from "./reducers/home";
+import users from "./app/users";
 
 const refresh = () => {
+    let state = localStorage.getItem("__state");
 
-    return JSON.parse(localStorage.getItem("__state"));
-}
+    if (state) JSON.parse(state);
+
+    return undefined;
+};
 
 const store = configureStore({
     reducer: {
-        home
+        users
     },
     preloadedState: refresh()
 });
